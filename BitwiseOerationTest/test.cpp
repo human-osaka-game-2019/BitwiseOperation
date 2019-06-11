@@ -48,3 +48,23 @@ TEST(GetBlueTest, Test2) {
 	BYTE blue = GetBlue(argb);
 	EXPECT_EQ(0x01, blue);
 }
+
+TEST(GetARGBTest, Test1) {
+	BYTE alpha = 0x12;
+	BYTE red = 0x34;
+	BYTE green = 0x56;
+	BYTE blue = 0x78;
+
+	DWORD argb = GetARGB(alpha, red, green, blue);
+	EXPECT_EQ(0x12345678, argb);
+}
+
+TEST(GetARGBTest, Test2) {
+	BYTE alpha = 0xAB;
+	BYTE red = 0xCD;
+	BYTE green = 0xEF;
+	BYTE blue = 0x01;
+
+	DWORD argb = GetARGB(alpha, red, green, blue);
+	EXPECT_EQ(0xABCDEF01, argb);
+}
